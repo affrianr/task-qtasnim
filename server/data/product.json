@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "nama_barang": "Kopi",
+    "stok_barang": 100,
+    "jumlah_terjual": 10,
+    "tanggal_transaksi": "1-05-2021",
+    "jenis_barang": "Konsumsi"
+  },
+  {
+    "id": 2,
+    "nama_barang": "Teh",
+    "stok_barang": 100,
+    "jumlah_terjual": 19,
+    "tanggal_transaksi": "5-05-2021",
+    "jenis_barang": "Konsumsi"
+  },
+  {
+    "id": 3,
+    "nama_barang": "Kopi",
+    "stok_barang": 90,
+    "jumlah_terjual": 15,
+    "tanggal_transaksi": "10-05-2021",
+    "jenis_barang": "Konsumsi"
+  },
+  {
+    "id": 4,
+    "nama_barang": "Pasta Gigi",
+    "stok_barang": 100,
+    "jumlah_terjual": 20,
+    "tanggal_transaksi": "11-05-2021",
+    "jenis_barang": "Pembersih"
+  },
+  {
+    "id": 5,
+    "nama_barang": "Sabun Mandi",
+    "stok_barang": 100,
+    "jumlah_terjual": 30,
+    "tanggal_transaksi": "11-05-2021",
+    "jenis_barang": "Pembersih"
+  },
+  {
+    "id": 6,
+    "nama_barang": "Sampo",
+    "stok_barang": 100,
+    "jumlah_terjual": 25,
+    "tanggal_transaksi": "12-05-2021",
+    "jenis_barang": "Pembersih"
+  },
+  {
+    "id": 7,
+    "nama_barang": "Teh",
+    "stok_barang": 81,
+    "jumlah_terjual": 5,
+    "tanggal_transaksi": "26-05-2021",
+    "jenis_barang": "Konsumsi"
+  }
+]
