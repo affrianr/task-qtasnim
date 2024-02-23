@@ -108,10 +108,16 @@ export default function Home() {
             </select>
           </div>
           <button
-            className="px-4 bg-blue-300 rounded-md"
+            className="px-4 bg-blue-300 hover:bg-blue-100 rounded-md"
             onClick={() => navigate("/compare")}
           >
             Bandingkan
+          </button>
+          <button
+            className="px-4 bg-blue-300 hover:bg-blue-100 rounded-md"
+            onClick={() => navigate("/add")}
+          >
+            Tambah Data
           </button>
         </div>
         <div class="flex items-center justify-center">
@@ -155,15 +161,15 @@ export default function Home() {
                           {product.tanggal_transaksi.split("T")[0]}
                         </td>
                         <td className="py-4 px-6">{product.jenis_barang}</td>
-                        <td className="">
+                        <td className=" text-black">
                           <button
-                            className="p-2 rounded-md bg-blue-300"
+                            className="p-2 rounded-md bg-blue-300 hover:bg-blue-100"
                             onClick={() => navigate(`/edit/${product.id}`)}
                           >
                             Edit
                           </button>
                           <button
-                            className="p-2 rounded-md bg-red-400"
+                            className="p-2 rounded-md bg-red-400 hover:bg-red-100"
                             onClick={() => handleDelete(product.id)}
                           >
                             Delete
