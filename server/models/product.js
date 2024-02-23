@@ -10,6 +10,10 @@ class Model {
         query += `WHERE nama_barang ILIKE '%${search}%'`;
       }
 
+      if (!sort) {
+        query += `ORDER BY id ASC`;
+      }
+
       if (sort !== "" && typeof sort !== "undefined") {
         if (sort.charAt(0) !== "-") {
           query += `ORDER BY ${sort} ASC`;
@@ -42,10 +46,44 @@ class Model {
         WHERE id = $1
       `;
 
-      let { rows } = await pool.query(query, [id]);
-      console.log(rows, "<<<<<<<<< data di model findone");
+      let { rows } = await pool.query(query, [+id]);
+
       return rows[0];
     } catch (error) {
+      throw error;
+    }
+  }
+
+  static async compare(time) {
+    try {
+      let query = "";
+      console.log(time);
+      if (!time || time == "all") {
+        query = `
+          SELECT jenis_barang, COUNT(tanggal_transaksi) FROM "Product"
+          GROUP BY jenis_barang
+        `;
+      }
+      if (time == "this week") {
+        query = `
+          SELECT jenis_barang, COUNT(tanggal_transaksi) FROM "Product"
+          WHERE tanggal_transaksi >= '2021-05-24' and tanggal_transaksi <= '2021-05-31'
+          GROUP BY jenis_barang
+        `;
+      }
+      if (time == "this month") {
+        query = `
+          SELECT jenis_barang, COUNT(tanggal_transaksi) FROM "Product"
+          WHERE tanggal_transaksi >= '2021-05-01' and tanggal_transaksi <= '2021-05-31'
+          GROUP BY jenis_barang
+        `;
+      }
+
+      let { rows } = await pool.query(query);
+      console.log(rows);
+      return rows;
+    } catch (error) {
+      console.log(err);
       throw error;
     }
   }

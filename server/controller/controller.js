@@ -5,6 +5,7 @@ class Controller {
   static async getProduct(req, res, next) {
     try {
       let { search, sort } = req.query;
+      console.log(sort, search);
       let dataProduct = await Product.findAll(search, sort);
       res.status(200).json(dataProduct);
     } catch (error) {
@@ -20,6 +21,17 @@ class Controller {
         throw { name: "not_found" };
       }
       res.status(200).json(dataProduct);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
+
+  static async compareProduct(req, res, next) {
+    try {
+      let { time } = req.query;
+      let dataCompare = await Product.compare(time);
+      res.status(200).json(dataCompare);
     } catch (error) {
       console.log(error);
       next(error);
@@ -76,6 +88,7 @@ class Controller {
       );
       res.status(201).json(result);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
@@ -142,6 +155,7 @@ class Controller {
   static async deleteProduct(req, res, next) {
     try {
       let { id } = req.params;
+      console.log(id);
 
       let result = await Product.delete(+id);
       console.log(result, ">>>>>>>");

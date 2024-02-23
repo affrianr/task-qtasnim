@@ -14,10 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/product", Controller.getProduct);
-app.get("/product/:id", Controller.getProductById);
+app.get("/product/detail/:id", Controller.getProductById);
 app.post("/product", Controller.addProdcut);
 app.put("/product/:id", Controller.updateProduct);
 app.delete("/product/:id", Controller.deleteProduct);
+app.get("/product/compare/", Controller.compareProduct);
 
 app.listen(port, () => {
   console.log(`Running on port: ${port}`);
